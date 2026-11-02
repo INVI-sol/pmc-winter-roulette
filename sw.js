@@ -1,4 +1,4 @@
-const CACHE='pmc-github-v7-'+self.registration.scope;const ASSETS=['./','index.html','manifest.webmanifest'];
+const CACHE='pmc-github-v8-'+self.registration.scope;const ASSETS=["./", "index.html", "manifest.webmanifest", "weapon-images-01.js", "weapon-images-02.js", "weapon-images-03.js", "weapon-images-04.js"];
 async function prepare(){const c=await caches.open(CACHE);await c.addAll(ASSETS)}
 self.addEventListener('install',e=>e.waitUntil(prepare().then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(self.clients.claim().then(async()=>{for(const key of await caches.keys())if(key.startsWith('pmc-github-')&&key.endsWith(self.registration.scope)&&key!==CACHE)await caches.delete(key)})));
